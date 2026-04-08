@@ -67,8 +67,8 @@ export function CenterChangeForm({ currentCenter }: CenterChangeFormProps) {
     return (
       <Card className="border-emerald-200 bg-emerald-50">
         <CardContent className="py-6 text-center">
-          <p className="text-emerald-800 font-medium">Center updated successfully!</p>
-          <p className="text-emerald-600 text-sm mt-1">Your admit card center has been updated.</p>
+          <p className="text-emerald-800 font-medium">Request submitted successfully!</p>
+          <p className="text-emerald-600 text-sm mt-1">Your abstract center change request is pending admin approval.</p>
         </CardContent>
       </Card>
     )
@@ -130,12 +130,12 @@ export function CenterChangeForm({ currentCenter }: CenterChangeFormProps) {
             {isLoading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Updating...
+                Submitting...
               </>
             ) : (
               <>
                 <Send className="mr-2 h-4 w-4" />
-                Update Center
+                Submit Request
               </>
             )}
           </Button>

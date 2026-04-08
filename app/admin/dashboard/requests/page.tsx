@@ -1,9 +1,9 @@
 import { db } from "@/lib/firebase"
-import { collection, getDocs, query, where } from "firebase/firestore"
+import { collection, getDocs, query, where, doc, getDoc } from "firebase/firestore"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { RequestActions } from "@/components/admin/request-actions"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Link from "next/link"
 
 interface PageProps {
   searchParams: Promise<{ status?: string }>
@@ -24,12 +24,16 @@ export default async function RequestsPage({ searchParams }: PageProps) {
   // Enrich requests with student data
   const enrichedRequests = await Promise.all(
     requests.map(async (req: any) => {
-      const studentQ = query(studentsRef, where("id", "==", req.student_id))
-      const studentSnap = await getDocs(studentQ)
-      const studentData = studentSnap.docs[0]?.data() || {}
-      return {
-        ...req,
-        students: studentData
+      try {
+        const studentRef = doc(db, "students", req.student_id)
+        const studentSnap = await getDoc(studentRef)
+        const studentData = studentSnap.exists() ? { id: studentSnap.id, ...studentSnap.data() } : null
+        return {
+          ...req,
+          students: studentData || {}
+        }
+      } catch (err) {
+        return { ...req, students: {} }
       }
     })
   )
@@ -67,28 +71,36 @@ export default async function RequestsPage({ searchParams }: PageProps) {
         <p className="text-sm text-slate-600">Admin panel for exam center change requests</p>
       </div>
 
-      <Tabs defaultValue={statusFilter}>
-        <TabsList className="h-auto w-full justify-start gap-2 overflow-x-auto bg-transparent p-0">
-          <TabsTrigger value="pending" asChild className="shrink-0">
-            <a href="/admin/dashboard/requests?status=pending" className="rounded-md border border-slate-300 px-3 py-1 text-sm">
-              Pending ({pendingCount})
-            </a>
-          </TabsTrigger>
-          <TabsTrigger value="approved" asChild className="shrink-0">
-            <a href="/admin/dashboard/requests?status=approved" className="rounded-md border border-slate-300 px-3 py-1 text-sm">
-              Approved ({approvedCount})
-            </a>
-          </TabsTrigger>
-          <TabsTrigger value="rejected" asChild className="shrink-0">
-            <a href="/admin/dashboard/requests?status=rejected" className="rounded-md border border-slate-300 px-3 py-1 text-sm">
-              Rejected ({rejectedCount})
-            </a>
-          </TabsTrigger>
-        </TabsList>
+      <div className="flex h-auto w-full justify-start gap-2 overflow-x-auto bg-transparent p-0">
+        <Link 
+          href="/admin/dashboard/requests?status=pending" 
+          className={`shrink-0 rounded-md border border-slate-300 px-3 py-1.5 text-sm font-medium transition-colors ${
+            statusFilter === "pending" ? "bg-slate-900 text-white" : "bg-white text-slate-600 hover:bg-slate-100"
+          }`}
+        >
+          Pending ({pendingCount})
+        </Link>
+        <Link 
+          href="/admin/dashboard/requests?status=approved" 
+          className={`shrink-0 rounded-md border border-slate-300 px-3 py-1.5 text-sm font-medium transition-colors ${
+            statusFilter === "approved" ? "bg-slate-900 text-white" : "bg-white text-slate-600 hover:bg-slate-100"
+          }`}
+        >
+          Approved ({approvedCount})
+        </Link>
+        <Link 
+          href="/admin/dashboard/requests?status=rejected" 
+          className={`shrink-0 rounded-md border border-slate-300 px-3 py-1.5 text-sm font-medium transition-colors ${
+            statusFilter === "rejected" ? "bg-slate-900 text-white" : "bg-white text-slate-600 hover:bg-slate-100"
+          }`}
+        >
+          Rejected ({rejectedCount})
+        </Link>
+      </div>
 
-        <TabsContent value={statusFilter} className="mt-6">
-          {enrichedRequests && enrichedRequests.length > 0 ? (
-            <Card className="rounded-none border-slate-300 shadow-none">
+      <div className="mt-6">
+        {enrichedRequests && enrichedRequests.length > 0 ? (
+          <Card className="rounded-none border-slate-300 shadow-none">
               <CardHeader className="border-b border-slate-200 pb-4">
                 <CardTitle className="text-base font-semibold tracking-wide">Request Register</CardTitle>
                 <CardDescription className="text-xs uppercase tracking-wider text-slate-500">
@@ -189,8 +201,7 @@ export default async function RequestsPage({ searchParams }: PageProps) {
               </CardContent>
             </Card>
           )}
-        </TabsContent>
-      </Tabs>
+      </div>
     </div>
   )
 }

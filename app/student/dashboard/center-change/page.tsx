@@ -39,21 +39,19 @@ export default async function CenterChangePage() {
     redirect("/student/login")
   }
 
-  const requests = payload.userId === DEMO_STUDENT_ID
-    ? []
-    : await (async () => {
-        try {
-          const requestsRef = collection(db, "center_change_requests")
-          const q = query(requestsRef, where("student_id", "==", payload.userId))
-          const querySnapshot = await getDocs(q)
-          return querySnapshot.docs.map(doc => doc.data()).sort((a, b) => 
-            new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-          )
-        } catch (error) {
-          console.error("Error fetching requests:", error)
-          return []
-        }
-      })()
+  const requests = await (async () => {
+    try {
+      const requestsRef = collection(db, "center_change_requests")
+      const q = query(requestsRef, where("student_id", "==", payload.userId))
+      const querySnapshot = await getDocs(q)
+      return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })).sort((a: any, b: any) => 
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+      )
+    } catch (error) {
+      console.error("Error fetching requests:", error)
+      return []
+    }
+  })()
 
   const getStatusBadge = (status: string) => {
     switch (status) {
@@ -105,7 +103,7 @@ export default async function CenterChangePage() {
                 <CardTitle className="text-amber-900">Important</CardTitle>
               </div>
               <CardDescription className="text-amber-700">
-                Center updates are applied instantly. Please select carefully.
+                Your center change request will be reviewed by the admin. Please select carefully.
               </CardDescription>
             </CardHeader>
           </Card>

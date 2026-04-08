@@ -1,10 +1,13 @@
 import { NextResponse } from "next/server"
 import { db } from "@/lib/firebase"
-import { collection, addDoc, query, where, getDocs, deleteDoc } from "firebase/firestore"
+import { collection, doc, setDoc } from "firebase/firestore"
 import type { StudentUploadRow } from "@/lib/types"
 
 function cleanText(value: string | undefined) {
   const normalized = (value || "").trim()
+  if (["na", "n/a", "null", "none", "-", "--"].includes(normalized.toLowerCase())) {
+    return null
+  }
   return normalized.length ? normalized : null
 }
 
@@ -31,20 +34,23 @@ export async function POST(request: Request) {
     const studentsRef = collection(db, "students")
     let inserted = 0
     let failed = 0
+    let firstError: string | null = null
 
     for (const s of students) {
       try {
         const rollNumber = normalizeIdentifier(s.roll_number)
-        
-        // Check if student already exists
-        const q = query(studentsRef, where("roll_number", "==", rollNumber))
-        const existingSnap = await getDocs(q)
+
+        if (!rollNumber || !(s.name || "").trim()) {
+          failed++
+          if (!firstError) firstError = "Missing required roll number or name in one or more rows"
+          continue
+        }
 
         const studentData = {
           roll_number: rollNumber,
           name: (s.name || "").trim(),
           phone: normalizePhone(s.phone),
-          date_of_birth: (s.date_of_birth || "2000-01-01").trim(),
+          date_of_birth: (s.date_of_birth && s.date_of_birth.trim().length) ? s.date_of_birth.trim() : "2000-01-01",
           father_name: cleanText(s.father_name),
           mother_name: cleanText(s.mother_name),
           address: cleanText(s.address),
@@ -55,16 +61,20 @@ export async function POST(request: Request) {
           updated_at: new Date().toISOString(),
         }
 
-        if (existingSnap.empty) {
-          // Add new document
-          await addDoc(studentsRef, studentData)
-          inserted++
-        } else {
-          // Update existing - for now skip (would need doc reference)
-          inserted++
-        }
+        // Upsert by roll number so uploads work even when read permissions are restricted.
+        const studentDocRef = doc(studentsRef, rollNumber)
+        await setDoc(studentDocRef, studentData, { merge: true })
+        inserted++
       } catch (error) {
-        console.error("Student insert error:", error)
+        console.error("Student insert error for", s.roll_number, ":", error)
+        if (!firstError) {
+          const message = error instanceof Error ? error.message : "Unknown upload error"
+          if (message.toUpperCase().includes("PERMISSION_DENIED")) {
+            firstError = "Firestore rules are blocking writes to students collection. Update rules to allow admin upload API writes."
+          } else {
+            firstError = message
+          }
+        }
         failed++
       }
     }
@@ -73,6 +83,7 @@ export async function POST(request: Request) {
       success: true,
       inserted,
       failed,
+      error: firstError,
     })
   } catch (error) {
     console.error("Upload error:", error)

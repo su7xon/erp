@@ -1,7 +1,7 @@
 import { cookies } from "next/headers"
 import { verifyToken } from "@/lib/auth"
 import { db } from "@/lib/firebase"
-import { doc, getDoc } from "firebase/firestore"
+import { doc, getDoc, collection, query, where, getDocs } from "firebase/firestore"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { MapPin, User, Phone, Home } from "lucide-react"
@@ -40,7 +40,21 @@ export default async function StudentDashboardPage() {
     redirect("/student/login")
   }
 
-  const pendingRequest = null
+  // Fetch pending center change request
+  let pendingRequest = null
+  try {
+    const q = query(
+      collection(db, "center_change_requests"),
+      where("student_id", "==", payload.userId),
+      where("status", "==", "pending")
+    )
+    const reqSnap = await getDocs(q)
+    if (!reqSnap.empty) {
+      pendingRequest = reqSnap.docs[0].data()
+    }
+  } catch (error) {
+    console.error("Error fetching pending request:", error)
+  }
 
   return (
     <div className="space-y-6">

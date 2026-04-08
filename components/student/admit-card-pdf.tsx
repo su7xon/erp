@@ -207,6 +207,11 @@ const styles = StyleSheet.create({
     fontSize: 10.5,
     color: "#352718",
   },
+  logo: {
+    width: 180,
+    height: 50,
+    objectFit: "contain",
+  },
   instructionsHeader: {
     marginBottom: 6,
     fontSize: 11,
@@ -298,8 +303,7 @@ function AdmitCardDocument({ student, qrCodeUrl }: AdmitCardDocumentProps) {
 
           <View style={styles.headerRow}>
             <View style={styles.titleLeft}>
-              <Text style={styles.universityName}>AMRAPALI</Text>
-              <Text style={styles.universityName}>UNIVERSITY</Text>
+              <Image style={styles.logo} src={getAbsoluteUrl("/IMG_20260408_170755.jpg-removebg-preview.png")} />
             </View>
             <View style={styles.appBlock}>
               <Text style={styles.appLabel}>Application Number:</Text>

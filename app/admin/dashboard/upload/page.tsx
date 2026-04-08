@@ -28,12 +28,30 @@ const COLUMN_ALIASES: Record<string, string> = {
   application_number: "roll_number",
   application_no: "roll_number",
   applicationnumber: "roll_number",
+  application: "roll_number",
+  app_no: "roll_number",
+  app_number: "roll_number",
+  no: "roll_number",
+  no_: "roll_number",
+  nu: "roll_number",
+  number: "roll_number",
+  sr_no: "roll_number",
+  s_no: "roll_number",
+  auset_no: "roll_number",
+  auset_number: "roll_number",
+  ausetno: "roll_number",
+  set_number: "roll_number",
+  set_no: "roll_number",
+  setno: "roll_number",
   roll_number: "roll_number",
   roll_no: "roll_number",
   rollnumber: "roll_number",
   name: "name",
   student_name: "name",
   studentname: "name",
+  candidate_name: "name",
+  father: "father_name",
+  fathername: "father_name",
   phone: "phone",
   phone_number: "phone",
   phone_no: "phone",
@@ -41,17 +59,30 @@ const COLUMN_ALIASES: Record<string, string> = {
   mobile_number: "phone",
   mobile_no: "phone",
   mobile_nu: "phone",
+  mob: "phone",
+  mob_no: "phone",
+  mob_nu: "phone",
+  mub_no: "phone",
+  mub_nu: "phone",
   date_of_birth: "date_of_birth",
   dob: "date_of_birth",
   father_name: "father_name",
   fathers_name: "father_name",
   mother_name: "mother_name",
   mothers_name: "mother_name",
+  mother: "mother_name",
+  mother_na: "mother_name",
+  mothername: "mother_name",
   address: "address",
   exam_center_name: "exam_center_name",
   exam_center: "exam_center_name",
+  center_name: "exam_center_name",
+  centre_name: "exam_center_name",
+  examcentre: "exam_center_name",
+  examcenter: "exam_center_name",
   center: "exam_center_name",
   centre: "exam_center_name",
+  centire: "exam_center_name",
   exam_center_address: "exam_center_address",
 }
 
@@ -71,6 +102,37 @@ export default function UploadPage() {
       .replace(/[^a-z0-9_]/g, "")
   }
 
+  const resolveColumnKey = (rawHeader: string): string => {
+    const normalized = normalizeColumnName(rawHeader)
+    const directAlias = COLUMN_ALIASES[normalized]
+    if (directAlias) return directAlias
+
+    // Fuzzy matching for real-world spreadsheets with inconsistent headers
+    if (normalized.includes("father")) return "father_name"
+    if (normalized.includes("mother")) return "mother_name"
+    if (normalized.includes("mobile") || normalized.includes("phone") || normalized.includes("mob") || normalized.includes("mub")) return "phone"
+    if (normalized.includes("date") && normalized.includes("birth")) return "date_of_birth"
+    if (normalized === "dob") return "date_of_birth"
+    if (normalized.includes("center") || normalized.includes("centre") || normalized.includes("cent")) {
+      if (normalized.includes("address")) return "exam_center_address"
+      return "exam_center_name"
+    }
+    if (normalized.includes("address")) return "address"
+    if (normalized.includes("name")) return "name"
+    if (
+      normalized.includes("roll") ||
+      normalized.includes("application") ||
+      normalized.includes("app") ||
+      normalized === "no" ||
+      normalized === "nu" ||
+      normalized === "number"
+    ) {
+      return "roll_number"
+    }
+
+    return normalized
+  }
+
   const parseExcel = useCallback((file: File) => {
     const reader = new FileReader()
     reader.onload = (e) => {
@@ -86,7 +148,22 @@ export default function UploadPage() {
           return
         }
 
-        const headers = (jsonData[0] as string[]).map((h) => COLUMN_ALIASES[normalizeColumnName(h)] || normalizeColumnName(h))
+        const headerRowIndex = jsonData.findIndex((row, index) => {
+          if (index > 5 || !Array.isArray(row) || row.length === 0) return false
+          const resolved = row.map((cell) => resolveColumnKey(String(cell || "")))
+          const hasName = resolved.includes("name")
+          const hasRoll = resolved.includes("roll_number")
+          const recognizableCount = resolved.filter((k) => [...REQUIRED_COLUMNS, ...OPTIONAL_COLUMNS].includes(k)).length
+          return (hasName && hasRoll) || recognizableCount >= 2
+        })
+
+        if (headerRowIndex === -1) {
+          setError("Could not detect header row. Please keep column names in the first few rows.")
+          return
+        }
+
+        const rawHeaders = (jsonData[headerRowIndex] as string[])
+        const headers = rawHeaders.map((h) => resolveColumnKey(String(h || "")))
         
         // Check for required columns
         const missingColumns = REQUIRED_COLUMNS.filter(col => !headers.includes(col))
@@ -96,28 +173,20 @@ export default function UploadPage() {
         }
 
         const rows: StudentUploadRow[] = []
-        for (let i = 1; i < jsonData.length; i++) {
+        for (let i = headerRowIndex + 1; i < jsonData.length; i++) {
           const row = jsonData[i] as unknown[]
           if (row.length === 0 || row.every(cell => !cell)) continue
 
           const student: StudentUploadRow = {
             roll_number: "",
             name: "",
-            date_of_birth: "2000-01-01",
+            date_of_birth: "",
           }
 
           headers.forEach((header, index) => {
             const value = row[index]
-            if (value !== undefined && value !== null) {
-              if (header === "date_of_birth") {
-                // Handle Excel date serial numbers
-                if (typeof value === "number") {
-                  const date = XLSX.SSF.parse_date_code(value)
-                  student.date_of_birth = `${date.y}-${String(date.m).padStart(2, "0")}-${String(date.d).padStart(2, "0")}`
-                } else {
-                  student.date_of_birth = String(value).trim()
-                }
-              } else if (header === "phone") {
+            if (value !== undefined && value !== null && String(value).trim().length > 0) {
+              if (header === "phone") {
                 const digits = String(value).replace(/\D/g, "")
                 if (digits) {
                   student.phone = digits
@@ -177,6 +246,12 @@ export default function UploadPage() {
 
       if (!response.ok) {
         setError(result.error || "Failed to upload students")
+        return
+      }
+
+      if (result.inserted === 0 && result.failed > 0) {
+        setUploadResult(null)
+        setError(result.error || "All rows failed to upload. Please check Firebase write rules.")
         return
       }
 
@@ -258,7 +333,7 @@ export default function UploadPage() {
             <p className="font-medium mb-1">Expected columns:</p>
             <ul className="list-disc list-inside space-y-1">
               <li><strong>Required:</strong> application_number (or roll_number), name</li>
-              <li><strong>Optional:</strong> mobile_number, father&apos;s_name, mother&apos;s_name, address, centre, date_of_birth</li>
+              <li><strong>Optional:</strong> mobile_number, father&apos;s_name, mother&apos;s_name, address, centre</li>
             </ul>
           </div>
         </CardContent>
@@ -269,7 +344,7 @@ export default function UploadPage() {
           <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <CardTitle>Preview</CardTitle>
-              <CardDescription>Showing first {Math.min(10, preview.length)} of {preview.length} students</CardDescription>
+              <CardDescription>Showing all {preview.length} students</CardDescription>
             </div>
             <Button onClick={handleUpload} disabled={isUploading} className="w-full sm:w-auto">
               {isUploading ? (
@@ -292,17 +367,19 @@ export default function UploadPage() {
                   <TableRow>
                     <TableHead>Application / Roll</TableHead>
                     <TableHead>Name</TableHead>
-                    <TableHead>Date of Birth</TableHead>
+                    <TableHead>Father Name</TableHead>
+                    <TableHead>Mother Name</TableHead>
                     <TableHead>Mobile</TableHead>
                     <TableHead>Center</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {preview.slice(0, 10).map((student, index) => (
+                  {preview.map((student, index) => (
                     <TableRow key={index}>
                       <TableCell className="font-medium">{student.roll_number}</TableCell>
                       <TableCell>{student.name}</TableCell>
-                      <TableCell>{student.date_of_birth}</TableCell>
+                      <TableCell>{student.father_name || "-"}</TableCell>
+                      <TableCell>{student.mother_name || "-"}</TableCell>
                       <TableCell>{student.phone || "-"}</TableCell>
                       <TableCell>{student.exam_center_name || "-"}</TableCell>
                     </TableRow>
@@ -312,12 +389,13 @@ export default function UploadPage() {
             </div>
 
             <div className="space-y-3 md:hidden">
-              {preview.slice(0, 10).map((student, index) => (
+              {preview.map((student, index) => (
                 <div key={index} className="rounded-lg border border-slate-200 bg-white p-3 text-sm">
                   <p className="font-semibold text-slate-900">{student.name}</p>
                   <p className="mt-1 text-xs text-slate-600">Roll: {student.roll_number}</p>
                   <div className="mt-2 grid grid-cols-1 gap-1 text-xs text-slate-700">
-                    <p>DOB: {student.date_of_birth}</p>
+                    <p>Father: {student.father_name || "-"}</p>
+                    <p>Mother: {student.mother_name || "-"}</p>
                     <p>Mobile: {student.phone || "-"}</p>
                     <p>Center: {student.exam_center_name || "-"}</p>
                   </div>

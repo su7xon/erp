@@ -66,7 +66,7 @@ export interface StudentUploadRow {
   roll_number: string
   name: string
   phone?: string
-  date_of_birth: string
+  date_of_birth?: string
   father_name?: string
   mother_name?: string
   address?: string
