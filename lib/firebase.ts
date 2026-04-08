@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app"
+import { initializeApp, getApps, getApp } from "firebase/app"
 import { getFirestore } from "firebase/firestore"
 import { getStorage } from "firebase/storage"
 import { getAuth } from "firebase/auth"
@@ -12,12 +12,18 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 }
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig)
+// Check if we have at least the API Key to avoid crashes during build
+const isConfigValid = !!firebaseConfig.apiKey
 
-// Services
-export const db = getFirestore(app)
-export const storage = getStorage(app)
-export const auth = getAuth(app)
+// Initialize Firebase with singleton pattern
+const app = (getApps().length === 0 && isConfigValid) 
+  ? initializeApp(firebaseConfig) 
+  : (getApps().length > 0 ? getApp() : null)
+
+// Services - safely export (will be null during build if no env vars)
+export const db = app ? getFirestore(app) : (null as any)
+export const storage = app ? getStorage(app) : (null as any)
+export const auth = app ? getAuth(app) : (null as any)
 
 export default app
+

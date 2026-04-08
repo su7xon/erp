@@ -1,0 +1,145 @@
+2026-04-08T14:56:01.081855Z  INFO tailwindcss_oxide::scanner: Provided sources:
+2026-04-08T14:56:01.082010Z  INFO tailwindcss_oxide::scanner: Source: PublicSourceEntry { base: "D:\\downloadss\\erp type", pattern: "**/*", negated: false }
+2026-04-08T14:56:01.082345Z  INFO tailwindcss_oxide::scanner: Optimized sources:
+2026-04-08T14:56:01.082380Z  INFO tailwindcss_oxide::scanner: Source: Auto { base: "D:\\downloadss\\erp type" }
+2026-04-08T14:56:01.086088Z  INFO discover_sources: tailwindcss_oxide::scanner: enter
+2026-04-08T14:56:01.086184Z  INFO discover_sources:walk_synchronous: tailwindcss_oxide::scanner: enter
+2026-04-08T14:56:01.154866Z  INFO discover_sources:walk_synchronous: tailwindcss_oxide::scanner: exit
+2026-04-08T14:56:01.185882Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\admin\\student-actions.tsx"
+2026-04-08T14:56:01.185925Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\api\\auth\\student\\form\\route.ts"
+2026-04-08T14:56:01.185984Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\form.tsx"
+2026-04-08T14:56:01.185990Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\.demo-photo-store.json"
+2026-04-08T14:56:01.186045Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\resizable.tsx"
+2026-04-08T14:56:01.186053Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\toast.tsx"
+2026-04-08T14:56:01.186219Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\student\\admit-card-pdf.tsx"
+2026-04-08T14:56:01.186162Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\lib\\firebase.ts"
+2026-04-08T14:56:01.186247Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\api\\auth\\student\\route.ts"
+2026-04-08T14:56:01.186316Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\label.tsx"
+2026-04-08T14:56:01.186373Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\button-group.tsx"
+2026-04-08T14:56:01.186585Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\student\\admit-card-view.tsx"
+2026-04-08T14:56:01.186598Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\api\\student\\center-change\\route.ts"
+2026-04-08T14:56:01.186669Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\scroll-area.tsx"
+2026-04-08T14:56:01.186679Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\accordion.tsx"
+2026-04-08T14:56:01.186724Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\toaster.tsx"
+2026-04-08T14:56:01.186694Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\student\\center-change-form.tsx"
+2026-04-08T14:56:01.186604Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\lib\\supabase\\admin.ts"
+2026-04-08T14:56:01.186712Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\.env.local.temp"
+2026-04-08T14:56:01.186870Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\api\\student\\photo\\route.ts"
+2026-04-08T14:56:01.186894Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\slider.tsx"
+2026-04-08T14:56:01.186743Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\hover-card.tsx"
+2026-04-08T14:56:01.186939Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\student\\dashboard\\center-change\\page.tsx"
+2026-04-08T14:56:01.186948Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\button.tsx"
+2026-04-08T14:56:01.187019Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\lib\\supabase\\client.ts"
+2026-04-08T14:56:01.187033Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\admin\\dashboard\\layout.tsx"
+2026-04-08T14:56:01.187051Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\student\\student-nav.tsx"
+2026-04-08T14:56:01.187149Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\menubar.tsx"
+2026-04-08T14:56:01.187214Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\student\\dashboard\\layout.tsx"
+2026-04-08T14:56:01.187266Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\lib\\supabase\\server.ts"
+2026-04-08T14:56:01.187391Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\student\\upload-photo-action.tsx"
+2026-04-08T14:56:01.187453Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\admin\\dashboard\\page.tsx"
+2026-04-08T14:56:01.187499Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\student\\dashboard\\page.tsx"
+2026-04-08T14:56:01.187521Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\lib\\types.ts"
+2026-04-08T14:56:01.187613Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\select.tsx"
+2026-04-08T14:56:01.187668Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\collapsible.tsx"
+2026-04-08T14:56:01.187694Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\theme-provider.tsx"
+2026-04-08T14:56:01.187435Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\input-otp.tsx"
+2026-04-08T14:56:01.187787Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\alert-dialog.tsx"
+2026-04-08T14:56:01.187698Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\sonner.tsx"
+2026-04-08T14:56:01.187815Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\toggle-group.tsx"
+2026-04-08T14:56:01.187841Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\input-group.tsx"
+2026-04-08T14:56:01.187799Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\calendar.tsx"
+2026-04-08T14:56:01.187151Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\layout.tsx"
+2026-04-08T14:56:01.188045Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\student\\login\\page.tsx"
+2026-04-08T14:56:01.187766Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\lib\\utils.ts"
+2026-04-08T14:56:01.188115Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\navigation-menu.tsx"
+2026-04-08T14:56:01.188193Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\page.tsx"
+2026-04-08T14:56:01.188296Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\admin\\dashboard\\requests\\page.tsx"
+2026-04-08T14:56:01.188385Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\admin\\admin-nav.tsx"
+2026-04-08T14:56:01.188450Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\student\\dashboard\\admit-card\\page.tsx"
+2026-04-08T14:56:01.188444Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\middleware.ts"
+2026-04-08T14:56:01.188623Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\separator.tsx"
+2026-04-08T14:56:01.188679Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\admin\\dashboard\\students\\page.tsx"
+2026-04-08T14:56:01.188699Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\drawer.tsx"
+2026-04-08T14:56:01.188721Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\admin\\export-button.tsx"
+2026-04-08T14:56:01.188729Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\admin\\request-actions.tsx"
+2026-04-08T14:56:01.188754Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\next-env.d.ts"
+2026-04-08T14:56:01.188969Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\admin\\dashboard\\upload\\page.tsx"
+2026-04-08T14:56:01.189016Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\next.config.mjs"
+2026-04-08T14:56:01.189016Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\command.tsx"
+2026-04-08T14:56:01.189066Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\empty.tsx"
+2026-04-08T14:56:01.189134Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\input.tsx"
+2026-04-08T14:56:01.189292Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\package.json"
+2026-04-08T14:56:01.189294Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\admin\\login\\page.tsx"
+2026-04-08T14:56:01.189401Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\alert.tsx"
+2026-04-08T14:56:01.189413Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\spinner.tsx"
+2026-04-08T14:56:01.189443Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\card.tsx"
+2026-04-08T14:56:01.189442Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\toggle.tsx"
+2026-04-08T14:56:01.189459Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\field.tsx"
+2026-04-08T14:56:01.189597Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\postcss.config.mjs"
+2026-04-08T14:56:01.189658Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\api\\admin\\requests\\[id]\\route.ts"
+2026-04-08T14:56:01.189688Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\pagination.tsx"
+2026-04-08T14:56:01.189811Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\context-menu.tsx"
+2026-04-08T14:56:01.189855Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\public\\placeholder.svg"
+2026-04-08T14:56:01.189895Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\api\\admin\\students\\export\\route.ts"
+2026-04-08T14:56:01.190083Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\sheet.tsx"
+2026-04-08T14:56:01.190128Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\api\\admin\\students\\upload\\route.ts"
+2026-04-08T14:56:01.190130Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\scripts\\001_create_tables.sql"
+2026-04-08T14:56:01.190139Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\dropdown-menu.tsx"
+2026-04-08T14:56:01.190279Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\sidebar.tsx"
+2026-04-08T14:56:01.190362Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\progress.tsx"
+2026-04-08T14:56:01.190424Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\tsconfig.json"
+2026-04-08T14:56:01.190436Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\scripts\\002_create_default_admin.sql"
+2026-04-08T14:56:01.190443Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\api\\admin\\students\\[id]\\route.ts"
+2026-04-08T14:56:01.190527Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\skeleton.tsx"
+2026-04-08T14:56:01.190598Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components.json"
+2026-04-08T14:56:01.190762Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\item.tsx"
+2026-04-08T14:56:01.190810Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\aspect-ratio.tsx"
+2026-04-08T14:56:01.190810Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\popover.tsx"
+2026-04-08T14:56:01.190819Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\switch.tsx"
+2026-04-08T14:56:01.190834Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\debug_log.txt"
+2026-04-08T14:56:01.190911Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\carousel.tsx"
+2026-04-08T14:56:01.190861Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\api\\auth\\admin\\route.ts"
+2026-04-08T14:56:01.190979Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\tooltip.tsx"
+2026-04-08T14:56:01.191029Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\radio-group.tsx"
+2026-04-08T14:56:01.191071Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\chart.tsx"
+2026-04-08T14:56:01.191107Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\dialog.tsx"
+2026-04-08T14:56:01.191184Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\deploy_log.txt"
+2026-04-08T14:56:01.191188Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\api\\auth\\logout\\route.ts"
+2026-04-08T14:56:01.191200Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\checkbox.tsx"
+2026-04-08T14:56:01.191266Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\lib\\auth.ts"
+2026-04-08T14:56:01.191278Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\hooks\\use-mobile.ts"
+2026-04-08T14:56:01.191375Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\hooks\\use-toast.ts"
+2026-04-08T14:56:01.191447Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\lib\\demo.ts"
+2026-04-08T14:56:01.191486Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\use-toast.ts"
+2026-04-08T14:56:01.191493Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\use-mobile.tsx"
+2026-04-08T14:56:01.191603Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\badge.tsx"
+2026-04-08T14:56:01.191639Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\kbd.tsx"
+2026-04-08T14:56:01.191639Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\avatar.tsx"
+2026-04-08T14:56:01.191663Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\tabs.tsx"
+2026-04-08T14:56:01.191663Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\table.tsx"
+2026-04-08T14:56:01.191749Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\textarea.tsx"
+2026-04-08T14:56:01.191778Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\components\\ui\\breadcrumb.tsx"
+2026-04-08T14:56:01.191976Z  INFO discover_sources: tailwindcss_oxide::scanner: exit
+2026-04-08T14:56:01.192001Z  INFO extract_candidates: tailwindcss_oxide::scanner: enter
+2026-04-08T14:56:01.192009Z  INFO extract_candidates:parse_all_blobs: tailwindcss_oxide::scanner: enter
+2026-04-08T14:56:01.192018Z  INFO extract_candidates:parse_all_blobs:extract: tailwindcss_oxide::scanner: enter
+2026-04-08T14:56:01.194986Z  INFO extract_candidates:parse_all_blobs:extract: tailwindcss_oxide::scanner: exit
+2026-04-08T14:56:01.195130Z  INFO extract_candidates:parse_all_blobs: tailwindcss_oxide::scanner: exit
+2026-04-08T14:56:01.195141Z  INFO extract_candidates:read_all_files: tailwindcss_oxide::scanner: enter
+2026-04-08T14:56:01.195147Z  INFO extract_candidates:read_all_files: tailwindcss_oxide::scanner: Reading 2 file(s)
+2026-04-08T14:56:01.195417Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\app\\globals.css"
+2026-04-08T14:56:01.195421Z  INFO tailwindcss_oxide::scanner: Reading "D:\\downloadss\\erp type\\styles\\globals.css"
+2026-04-08T14:56:01.195506Z  INFO extract_candidates:read_all_files: tailwindcss_oxide::scanner: exit
+2026-04-08T14:56:01.195541Z  INFO extract_candidates:extract_css_variables: tailwindcss_oxide::scanner: enter
+2026-04-08T14:56:01.195629Z  INFO extract_candidates:extract_css_variables:extract: tailwindcss_oxide::scanner: enter
+2026-04-08T14:56:01.195877Z  INFO extract_candidates:extract_css_variables:extract: tailwindcss_oxide::scanner: exit
+2026-04-08T14:56:01.195903Z  INFO extract_candidates:extract_css_variables: tailwindcss_oxide::scanner: exit
+2026-04-08T14:56:01.196998Z  INFO extract_candidates: tailwindcss_oxide::scanner: exit
+2026-04-08T14:56:01.202101Z  INFO get_files: tailwindcss_oxide::scanner: enter
+2026-04-08T14:56:01.202148Z  INFO get_files:discover_sources: tailwindcss_oxide::scanner: enter
+2026-04-08T14:56:01.202158Z  INFO get_files:discover_sources: tailwindcss_oxide::scanner: exit
+2026-04-08T14:56:01.202637Z  INFO get_files: tailwindcss_oxide::scanner: exit
+2026-04-08T14:56:01.203511Z  INFO get_globs: tailwindcss_oxide::scanner: enter
+2026-04-08T14:56:01.203529Z  INFO get_globs:discover_sources: tailwindcss_oxide::scanner: enter
+2026-04-08T14:56:01.203537Z  INFO get_globs:discover_sources: tailwindcss_oxide::scanner: exit
+2026-04-08T14:56:01.237044Z  INFO get_globs: tailwindcss_oxide::scanner: exit
