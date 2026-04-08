@@ -31,6 +31,16 @@ export async function POST(request: Request) {
       )
     }
 
+    if (!db) {
+      return NextResponse.json(
+        {
+          error:
+            "Firebase is not configured on the server. Add NEXT_PUBLIC_FIREBASE_* env vars in Netlify and redeploy.",
+        },
+        { status: 500 }
+      )
+    }
+
     const studentsRef = collection(db, "students")
     let inserted = 0
     let failed = 0
@@ -87,8 +97,18 @@ export async function POST(request: Request) {
     })
   } catch (error) {
     console.error("Upload error:", error)
+    const message = error instanceof Error ? error.message : "Unknown upload error"
+    const normalized = message.toUpperCase()
+
+    if (normalized.includes("PERMISSION_DENIED")) {
+      return NextResponse.json(
+        { error: "Firestore denied access. Update Firestore rules for students writes." },
+        { status: 500 }
+      )
+    }
+
     return NextResponse.json(
-      { error: "Failed to process upload" },
+      { error: `Failed to process upload: ${message}` },
       { status: 500 }
     )
   }
