@@ -1,0 +1,147 @@
+﻿[96m[1mΓÇï[22m[39m
+[96m[1mNetlify Build                                                 [22m[39m
+[96m[1mΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ[22m[39m
+[36m[1mΓÇï[22m[39m
+[36m[1mΓ¥» Version[22m[39m
+  @netlify/build 35.5.13
+[36m[1mΓÇï[22m[39m
+[36m[1mΓ¥» Flags[22m[39m
+  accountId: 6815abb65e6468dda2ad5db8
+  dry: false
+[36m[1mΓÇï[22m[39m
+[36m[1mΓ¥» Current directory[22m[39m
+  D:\downloadss\erp type
+[36m[1mΓÇï[22m[39m
+[36m[1mΓ¥» Config file[22m[39m
+  No config file was defined: using default values.
+[36m[1mΓÇï[22m[39m
+[36m[1mΓ¥» Context[22m[39m
+  production
+[36m[1mΓÇï[22m[39m
+[36m[1mΓ¥» Installing extensions[22m[39m
+   - neon
+[36m[1mΓÇï[22m[39m
+[36m[1mΓ¥» Using Next.js Runtime - v5.15.9[22m[39m
+[36m[1mΓÇï[22m[39m
+[36m[1mΓ¥» Loading extensions[22m[39m
+   - neon
+[96m[1mΓÇï[22m[39m
+[96m[1mBuild command from Netlify app                                [22m[39m
+[96m[1mΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ[22m[39m
+ΓÇï
+[36m$ npm run build[39m
+
+> my-project@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.2.0 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 8.2s
+  Skipping validation of types
+  Finished TypeScript config validation in 31ms ...
+  Collecting page data using 15 workers ...
+  Generating static pages using 15 workers (0/20) ...
+  Generating static pages using 15 workers (5/20) 
+  Generating static pages using 15 workers (10/20) 
+  Generating static pages using 15 workers (15/20) 
+Γ£ô Generating static pages using 15 workers (20/20) in 2.9s
+  Finalizing page optimization ...
+
+Route (app)
+Γöî Γùï /
+Γö£ Γùï /_not-found
+Γö£ Γùï /admin/dashboard
+Γö£ ╞Æ /admin/dashboard/requests
+Γö£ ╞Æ /admin/dashboard/students
+Γö£ Γùï /admin/dashboard/upload
+Γö£ Γùï /admin/login
+Γö£ ╞Æ /api/admin/requests/[id]
+Γö£ ╞Æ /api/admin/students/[id]
+Γö£ ╞Æ /api/admin/students/export
+Γö£ ╞Æ /api/admin/students/upload
+Γö£ ╞Æ /api/auth/admin
+Γö£ ╞Æ /api/auth/logout
+Γö£ ╞Æ /api/auth/student
+Γö£ ╞Æ /api/auth/student/form
+Γö£ ╞Æ /api/student/center-change
+Γö£ ╞Æ /api/student/photo
+Γö£ ╞Æ /student/dashboard
+Γö£ ╞Æ /student/dashboard/admit-card
+Γö£ ╞Æ /student/dashboard/center-change
+Γöö ╞Æ /student/login
+
+
+╞Æ Proxy (Middleware)
+
+Γùï  (Static)   prerendered as static content
+╞Æ  (Dynamic)  server-rendered on demand
+
+ΓÇï
+[90m(build.command completed in 20.6s)[39m
+[96m[1mΓÇï[22m[39m
+[96m[1mFunctions bundling                                            [22m[39m
+[96m[1mΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ[22m[39m
+ΓÇï
+Packaging Functions from [36m.netlify\functions-internal[39m directory:
+ - ___netlify-server-handler\___netlify-server-handler.mjs
+ΓÇï
+ΓÇï
+[90m(Functions bundling completed in 2.1s)[39m
+[96m[1mΓÇï[22m[39m
+[96m[1mEdge Functions bundling                                       [22m[39m
+[96m[1mΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ[22m[39m
+ΓÇï
+Packaging Edge Functions from [36m.netlify\edge-functions[39m directory:
+ - ___netlify-edge-handler-middleware
+ΓÇï
+[90m(Edge Functions bundling completed in 2.9s)[39m
+[91m[1mΓÇï[22m[39m
+[91m[1mPlugin "@netlify/plugin-nextjs" failed                        [22m[39m
+[91m[1mΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ[22m[39m
+ΓÇï
+  [31m[1mError message[22m[39m
+  Error: Failed publishing static content
+ΓÇï
+  [31m[1mPlugin details[22m[39m
+  Package:        @netlify/plugin-nextjs
+  Version:        5.15.9
+  Repository:     git+https://github.com/opennextjs/opennextjs-netlify.git
+  npm link:       https://www.npmjs.com/package/@netlify/plugin-nextjs
+  Report issues:  https://github.com/opennextjs/opennextjs-netlify/issues
+ΓÇï
+  [31m[1mError location[22m[39m
+  In "onPostBuild" event in "@netlify/plugin-nextjs" from undefined and package.json
+ΓÇï
+  [31m[1mResolved config[22m[39m
+  build:
+    command: npm run build
+    commandOrigin: ui
+    publish: D:\downloadss\erp type\.next
+    publishOrigin: ui
+  headers:
+    - for: /_next/static/*
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+  headersOrigin: inline
+  plugins:
+    - inputs: {}
+      origin: default
+      package: "@netlify/plugin-nextjs"
+  redirects:
+    - from: /_next/image
+      query:
+        q: :quality
+        url: :url
+        w: :width
+      status: 200
+      to: /.netlify/images?url=:url&w=:width&q=:quality
+    - from: /_ipx/*
+      query:
+        q: :quality
+        url: :url
+        w: :width
+      status: 200
+      to: /.netlify/images?url=:url&w=:width&q=:quality
+  redirectsOrigin: inline
