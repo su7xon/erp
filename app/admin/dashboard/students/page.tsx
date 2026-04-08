@@ -85,7 +85,8 @@ export default async function StudentsPage({ searchParams }: PageProps) {
                       <TableHead>Roll Number</TableHead>
                       <TableHead>Name</TableHead>
                       <TableHead className="hidden md:table-cell">Phone</TableHead>
-                      <TableHead className="hidden lg:table-cell">DOB</TableHead>
+                      <TableHead className="hidden lg:table-cell">Father Name</TableHead>
+                      <TableHead className="hidden lg:table-cell">Mother Name</TableHead>
                       <TableHead className="hidden lg:table-cell">Exam Center</TableHead>
                       <TableHead className="w-[100px]">Actions</TableHead>
                     </TableRow>
@@ -97,7 +98,10 @@ export default async function StudentsPage({ searchParams }: PageProps) {
                         <TableCell>{student.name}</TableCell>
                         <TableCell className="hidden md:table-cell">{student.phone || "-"}</TableCell>
                         <TableCell className="hidden lg:table-cell">
-                          {new Date(student.date_of_birth).toLocaleDateString()}
+                          {student.father_name || "-"}
+                        </TableCell>
+                        <TableCell className="hidden lg:table-cell">
+                          {student.mother_name || "-"}
                         </TableCell>
                         <TableCell className="hidden lg:table-cell">
                           {student.exam_center_name || "-"}
@@ -123,7 +127,8 @@ export default async function StudentsPage({ searchParams }: PageProps) {
                     </div>
                     <div className="mt-3 grid grid-cols-1 gap-1 text-xs text-slate-600">
                       <p>Phone: {student.phone || "-"}</p>
-                      <p>DOB: {new Date(student.date_of_birth).toLocaleDateString()}</p>
+                      <p>Father: {student.father_name || "-"}</p>
+                      <p>Mother: {student.mother_name || "-"}</p>
                       <p>Center: {student.exam_center_name || "-"}</p>
                     </div>
                   </div>
